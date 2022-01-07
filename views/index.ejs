@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body class="<%= locals.bg ? locals.bg.color : null %>">
+  <div class="contenedor">   
+      <% if (locals.datos) { %>
+      <div class="contenedor-formulario texto">
+        <h1>Hola <%= datos.nombre %> !</h1>
+        <div class="box">
+          <h2>Elegiste el color: <%= datos.color %>.</h2>
+          <h2>Tu email es: <%= datos.email %>.</h2>
+          <h2>Y tu edad es: <%= datos.edad %>.</h2>
+        </div>
+        <a href="/" class="btn">Volver</a>
+      </div>
+
+      <% } else { %>
+        <div class="contenedor-formulario">
+          <form action="/" method="POST">
+            <div class="campo">
+              <label for="nombre">Ingrese su nombre:</label>
+              <input type="text" name="nombre" id="nombre"
+              <% if (locals.errors && !errors.nombre) { %>
+                  value="<%= old.nombre %>"
+              <% } %>
+              placeholder= '<%= locals.errors && errors.nombre ? errors.nombre.msg : null %> '
+              >
+            </div>
+            <div class="campo">
+              <select name="color" id="color">
+                <option value="" selected hidden>Elige un color</option>
+                <option value="celeste"
+                 <% if (locals.errors && !errors.color && old.color === 'celeste') { %>  selected <% } %> >Celeste</option>
+                <option value="verde"
+                <% if (locals.errors && !errors.color && old.color === 'verde') { %> selected <% } %> >Verde</option>
+                <option value="naranja"
+                <% if (locals.errors && !errors.color && old.color === 'naranja') { %> selected <% } %>  >Naranaja</option>
+                <option value="rosa"
+                <% if (locals.errors && !errors.color && old.color === 'rosa') { %> selected <% } %> >Rosa</option>
+              </select>
+              <span class="errors"><%= locals.errors && errors.color ? errors.color.msg : null %> </span>
+            </div>
+            <div class="campo">
+              <label for="email">Ingrese su email:</label>
+              <input type="text" name="email" id="email"
+              <% if (locals.errors && !errors.email) { %>
+                value="<%= old.email %>"
+            <% } %>
+                placeholder='<%= locals.errors && errors.email ? errors.email.msg : null %>'
+              >
+              
+            </div>
+            <div class="campo">
+              <label for="edad">Ingrese su edad:</label>
+              <input type="text" name="edad" id="edad"
+              <% if (locals.errors && !errors.edad) { %>
+                value="<%= old.edad %>"
+            <% } %>
+            placeholder='<%= locals.errors && errors.edad ? errors.edad.msg : null %>'
+              >
+            </div>
+            <div class="campo recordar">
+              <label for="recordar">Recordar color</label>
+              <input type="checkbox" name="recordar" id="recordar">
+              <span class="check"></span>
+            </div>
+            
+            <button>Enviar</button>
+            <% if (locals.bg) { %>
+                <a href="/olvidar" class="btn olvidar">Olvidar el color</a>
+            <% } %>
+          </form>
+        </div>
+      <% } %>
+      
+  </div>
+</body>
+</html>

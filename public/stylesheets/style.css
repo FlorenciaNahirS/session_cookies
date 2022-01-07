@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+*{
+  margin: 0;
+  padding:0;
+  box-sizing:border-box;
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+}
+
+body{
+  background-color: #545454;
+}
+
+body.verde{
+  background-color: #228000;
+}
+
+body.verde .btn:hover{ 
+  color: #228000;
+}
+
+body.celeste{
+  background-color: #45a7c4;
+}
+
+body.celeste .btn:hover{
+  color: #45a7c4;
+}
+
+body.naranja{
+  background-color: #ff8000;
+}
+
+body.naranja .btn:hover{
+  color: #ff8000;
+}
+
+body.rosa{
+  background-color: #db4b78;
+}
+
+body.rosa .btn:hover{
+  color: #db4b78;
+}
+
+
+/*--Formulatio--*/
+
+.contenedor{
+  width: 100%;
+  height: 100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-formulario{
+  width: 500px;
+  padding: 50px 20px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 3px solid #fff;
+  box-shadow: 6px 6px 0 #fff;
+}
+
+.contenedor-formulario form{
+  width: 90%;
+  margin:0 auto;
+}
+
+.campo label, .campo input, .campo select ,.campo option{
+  width: 100%;
+  outline: none;
+  border: 3px solid transparent;
+  border-radius: 15px;
+}
+
+.campo label{
+  margin: 20px 0 8px;
+  display:block;
+}
+
+.campo select{
+  margin: 30px 0 0;
+}
+
+.campo input, .campo select ,.campo option{
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 3px solid #fff;
+  box-shadow: 4px 4px 0 #fff;
+  transition: border .5s, box-shadow .6s;
+  color: #212121;
+}
+
+.campo input:focus, .campo select:focus{
+  border: 3px solid #545454;
+  box-shadow: 0px 0px 0 #545454;
+}
+
+.btn{
+  width: 120px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn.olvidar {
+  width: auto;
+}
+
+.contenedor-formulario form button, .btn{
+  margin: 40px auto 0;
+  font-size: 1.1em;
+  border-radius: 25px; 
+  padding: 10px 20px;
+  transition: background-color .5s, color .5s, box-shadow .5s;
+  display:block;
+  cursor: pointer;
+  font-weight: 600;
+  border:3px solid #fff;
+  box-shadow: 4px 4px 0 #fff;
+  color:#fff;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.contenedor-formulario form button:hover, .btn:hover{
+  background-color: #fff;
+  color: #545454;
+  box-shadow: 0px 0px 0 #fff;
+}
+
+.texto h1{
+  margin: 0 0 20px; 
+  text-align:center;
+}
+
+.texto h2{
+  margin:0 0 15px; 
+}
+
+.box{
+  width: 90%;
+  margin: 0 auto;
+}
+
+::placeholder, .errors{
+  color: #bb0303;
+  transition: opacity .5s;
+}
+
+.errors{
+  margin: 10px 10px 0;
+  display:block;
+}
+
+.campo input:focus::placeholder{
+  opacity: 0;
+}
+
+.campo.recordar input{
+  box-shadow: none;
+  position: absolute;
+  top:0;
+  right: 0;
+  visibility: hidden;
+}
+
+.recordar{
+  width: 40%;
+  position: relative;
+  height: 35px;
+  margin-top: 30px;
+  line-height: 35px;
+ 
+}
+
+.recordar label{
+  cursor: pointer;
+}
+
+.check{
+  width: 35px; 
+  height: 35px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 3px solid #fff;
+  position: absolute;
+  top:0;
+  right: 0;
+  z-index: -1;
+  cursor: pointer;
+}
+
+.recordar input:checked ~ .check::after{
+    content: '';
+    width: 80%;
+    height: 80%;
+    border-radius: 8px;
+    background-color: #fff;
+    position: absolute;
+    top:3px;
+    right: 3px;
+}
